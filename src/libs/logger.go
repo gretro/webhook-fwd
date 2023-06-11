@@ -3,6 +3,7 @@ package libs
 import (
 	"fmt"
 
+	"github.com/gretro/webhook-fwd/src/config"
 	"go.uber.org/zap"
 )
 
@@ -12,6 +13,30 @@ type CLILoggerOptions struct {
 	Quiet   bool
 	Verbose bool
 	Debug   bool
+}
+
+func BootstrapWebLogger(cfg *config.AppConfig) *zap.Logger {
+	atomicLevel, err := zap.ParseAtomicLevel(cfg.LogLevel)
+	var level = zap.InfoLevel
+	if err == nil {
+		level = atomicLevel.Level()
+	}
+
+	if cfg.AppEnvironment == config.DevelopmentAppEnv {
+		logger, err = zap.NewDevelopment(
+			zap.IncreaseLevel(level),
+		)
+	} else {
+		logger, err = zap.NewProduction(
+			zap.IncreaseLevel(level),
+		)
+	}
+
+	if err != nil {
+		panic(fmt.Errorf("could not initialize the logger: %w", err))
+	}
+
+	return logger
 }
 
 func BootstrapCLILogger(options CLILoggerOptions) *zap.Logger {
