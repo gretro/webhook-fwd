@@ -6,7 +6,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/gretro/webhook-fwd/src/libs"
+	"github.com/gretro/webhook-fwd/libs"
 	"go.uber.org/zap"
 )
 

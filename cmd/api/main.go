@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/gretro/webhook-fwd/src/config"
-	"github.com/gretro/webhook-fwd/src/libs"
-	"github.com/gretro/webhook-fwd/src/webserver"
+	"github.com/gretro/webhook-fwd/config"
+	"github.com/gretro/webhook-fwd/libs"
+	"github.com/gretro/webhook-fwd/webserver/web"
 )
 
 func main() {
@@ -20,5 +20,5 @@ func main() {
 	cfg := config.BoostrapAppConfiguration()
 	libs.BootstrapWebLogger(cfg)
 
-	webserver.BootstrapWebServer(cfg)
+	web.BootstrapWebServer(cfg)
 }

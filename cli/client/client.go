@@ -11,8 +11,8 @@ import (
 	"runtime"
 	"time"
 
-	httpclient "github.com/gretro/webhook-fwd/src/http_client"
-	"github.com/gretro/webhook-fwd/src/utils"
+	httpclient "github.com/gretro/webhook-fwd/cli/http_client"
+	"github.com/gretro/webhook-fwd/utils"
 )
 
 type Client struct {

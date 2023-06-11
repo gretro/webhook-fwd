@@ -3,7 +3,7 @@ package libs
 import (
 	"fmt"
 
-	"github.com/gretro/webhook-fwd/src/config"
+	"github.com/gretro/webhook-fwd/config"
 	"go.uber.org/zap"
 )
 

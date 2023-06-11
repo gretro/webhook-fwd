@@ -3,10 +3,10 @@ package commands
 import (
 	"errors"
 
-	"github.com/gretro/webhook-fwd/src/client"
-	apperrors "github.com/gretro/webhook-fwd/src/errors"
-	"github.com/gretro/webhook-fwd/src/libs"
-	"github.com/gretro/webhook-fwd/src/utils"
+	"github.com/gretro/webhook-fwd/cli/client"
+	apperrors "github.com/gretro/webhook-fwd/errors"
+	"github.com/gretro/webhook-fwd/libs"
+	"github.com/gretro/webhook-fwd/utils"
 	"github.com/urfave/cli/v2"
 	"go.uber.org/zap"
 )

@@ -1,4 +1,4 @@
-package webserver
+package web
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/gofiber/fiber/v2/middleware/requestid"
-	"github.com/gretro/webhook-fwd/src/config"
+	"github.com/gretro/webhook-fwd/config"
 )
 
 var webserver *fiber.App

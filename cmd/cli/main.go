@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/gretro/webhook-fwd/src/commands"
-	"github.com/gretro/webhook-fwd/src/libs"
+	"github.com/gretro/webhook-fwd/cli/commands"
+	"github.com/gretro/webhook-fwd/libs"
 	"github.com/urfave/cli/v2"
 )
 

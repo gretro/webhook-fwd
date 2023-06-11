@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/gretro/webhook-fwd/src/dtos"
-	apperrors "github.com/gretro/webhook-fwd/src/errors"
-	httpclient "github.com/gretro/webhook-fwd/src/http_client"
+	httpclient "github.com/gretro/webhook-fwd/cli/http_client"
+	"github.com/gretro/webhook-fwd/dtos"
+	apperrors "github.com/gretro/webhook-fwd/errors"
 )
 
 const (

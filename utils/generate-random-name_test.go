@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/gretro/webhook-fwd/src/utils"
+	"github.com/gretro/webhook-fwd/utils"
 	"github.com/stretchr/testify/suite"
 )
 

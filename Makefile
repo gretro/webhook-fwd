@@ -1,8 +1,8 @@
 API_BIN=dist/webhook-fwd-api
-API_SRC=src/cmd/api/main.go
+API_SRC=cmd/api/main.go
 
 CLI_BIN=bin/webhook-fwd
-CLI_SRC=src/cmd/cli/main.go
+CLI_SRC=cmd/cli/main.go
 
 .DEFAULT_GOAL := webserver
 
@@ -22,6 +22,6 @@ dist_cli:
 	GOOS=linux GOARCH=amd64 go build -o "$(CLI_BIN)-linux-amd64" $(CLI_SRC)
 
 test:
-	go test ./src/...
+	go test ./...
 
-.PHONY: build_api build_cli dist_cli test
+.PHONY: build_api build_cli webserver dist_cli test
