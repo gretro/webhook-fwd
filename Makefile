@@ -17,3 +17,5 @@ dist_cli:
 
 test:
 	go test ./src/...
+
+.PHONY: build_api build_cli dist_cli test

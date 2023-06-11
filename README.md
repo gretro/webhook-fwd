@@ -1,4 +1,4 @@
-# Webhook Fwd
+# Webhook FWD
 Forward your Webhooks with ease.
 
 ## CLI
