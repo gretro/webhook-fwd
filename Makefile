@@ -6,6 +6,11 @@ CLI_SRC=cmd/cli/main.go
 
 .DEFAULT_GOAL := webserver
 
+clean:
+	rm -rf bin/ dist/
+	go clean -cache
+	go clean -testcache
+
 build_api:
 	go build -o $(API_BIN) $(API_SRC)
 
@@ -22,6 +27,12 @@ dist_cli:
 	GOOS=linux GOARCH=amd64 go build -o "$(CLI_BIN)-linux-amd64" $(CLI_SRC)
 
 test:
-	go test ./...
+	go test -count=1 -timeout=5m ./...
 
-.PHONY: build_api build_cli webserver dist_cli test
+race:
+	go test -race -count=1 -timeout=5m ./...
+
+vet:
+	go test -count=1 -vet="" ./...
+
+.PHONY: clean build_api build_cli webserver dist_cli test race vet

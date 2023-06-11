@@ -10,11 +10,11 @@ import (
 	"github.com/gretro/webhook-fwd/config"
 )
 
-var webserver *fiber.App
+var apiServer *fiber.App
 
 func BootstrapWebServer(cfg *config.AppConfig) {
-	webserver = fiber.New()
-	webserver.Use(
+	apiServer = fiber.New()
+	apiServer.Use(
 		// TODO: Implement Basic Auth to handle API Keys
 		requestid.New(requestid.Config{
 			Header:     "X-Request-ID",
@@ -25,23 +25,25 @@ func BootstrapWebServer(cfg *config.AppConfig) {
 		recover.New(),
 	)
 
-	webserver.Get("/ready", func(ctx *fiber.Ctx) error {
+	apiServer.Get("/ready", func(ctx *fiber.Ctx) error {
 		ctx.SendString("ready!")
 		return nil
 	})
 
-	webserver.Get("/health", func(ctx *fiber.Ctx) error {
+	apiServer.Get("/health", func(ctx *fiber.Ctx) error {
 		ctx.SendString("healthy")
 		return nil
 	})
 
-	webserver.Listen(fmt.Sprintf(":%d", cfg.HttpPort))
+	BootstrapControllers(apiServer)
+
+	apiServer.Listen(fmt.Sprintf(":%d", cfg.HttpPort))
 }
 
-func WebServer() *fiber.App {
-	if webserver == nil {
+func ApiServer() *fiber.App {
+	if apiServer == nil {
 		panic("WebServer is not bootstrapped")
 	}
 
-	return webserver
+	return apiServer
 }

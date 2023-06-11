@@ -8,8 +8,8 @@ type AlreadyExistsError struct {
 	innerError error
 }
 
-func NewAlreadyExistsError(entityType string, id string, innerError error) *AlreadyExistsError {
-	return &AlreadyExistsError{
+func NewAlreadyExistsError(entityType string, id string, innerError error) AlreadyExistsError {
+	return AlreadyExistsError{
 		entityType: entityType,
 		id:         id,
 		innerError: innerError,
@@ -17,7 +17,7 @@ func NewAlreadyExistsError(entityType string, id string, innerError error) *Alre
 }
 
 func (err AlreadyExistsError) Error() string {
-	return fmt.Sprintf("entity %s (%s) already exists", err.entityType, err.id)
+	return fmt.Sprintf("%s entity with ID: '%s' already exists", err.entityType, err.id)
 }
 
 func (err AlreadyExistsError) EntityType() string {

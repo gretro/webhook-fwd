@@ -7,7 +7,7 @@ import (
 	"go.uber.org/zap"
 )
 
-var logger *zap.Logger
+var logger *zap.Logger = zap.NewNop()
 
 type CLILoggerOptions struct {
 	Quiet   bool
@@ -73,7 +73,7 @@ func BootstrapCLILogger(options CLILoggerOptions) *zap.Logger {
 
 func Logger() *zap.Logger {
 	if logger == nil {
-		panic("Logger is not initialized")
+		panic("logger is not initialized")
 	}
 
 	return logger
