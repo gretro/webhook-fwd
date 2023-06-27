@@ -8,11 +8,15 @@ RUN apk add --no-cache make ca-certificates bash \
   && update-ca-certificates \
   && go mod download
 
-FROM deps AS builder
+FROM deps AS code
 
 WORKDIR /webhook-fwd
 
 COPY ./ ./
+
+FROM code AS builder
+
+WORKDIR /webhook-fwd
 
 RUN make build_api
 
