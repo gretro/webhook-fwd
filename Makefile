@@ -14,6 +14,9 @@ clean:
 build_api:
 	go build -o $(API_BIN) $(API_SRC)
 
+debug_api:
+	go build -o $(API_BIN) -gcflags="all=-N -l" $(API_SRC)
+
 build_cli:
 	go build -o $(CLI_BIN) $(CLI_SRC)
 

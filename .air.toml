@@ -7,9 +7,9 @@ tmp_dir = "tmp"
 
 [build]
 # Just plain old shell command. You could use `make` as well.
-cmd = "make build_api"
+cmd = "make debug_api"
 # Binary file yields from `cmd`.
-bin = "dist/webhook-fwd-api"
+bin = "/go/bin/dlv exec dist/webhook-fwd-api --continue --accept-multiclient --headless --api-version 2 --listen 0.0.0.0:15333"
 # Watch these filename extensions.
 include_ext = ["go", "tpl", "tmpl"]
 # It's not necessary to trigger build each time file changes if it's too frequent.
