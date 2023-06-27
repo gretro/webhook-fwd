@@ -20,8 +20,8 @@ func BoostrapAppConfiguration() *AppConfig {
 	// TODO: Read from environment variables
 	appConfig = &AppConfig{
 		AppEnvironment: DevelopmentAppEnv,
-		HttpPort:       25333,
-		PublicHost:     "http://localhost:25333",
+		HttpPort:       5333,
+		PublicHost:     "http://localhost:5333",
 		LogLevel:       zap.InfoLevel.String(),
 	}
 

@@ -12,7 +12,7 @@ func NewChannelController() *ChannelController {
 func (controller *ChannelController) Register(apiServer *fiber.App) {
 	group := apiServer.Group("/channels")
 
-	group.Get("/:channelName")
+	group.Get("/:channelName", controller.GetChannel)
 }
 
 func (controller *ChannelController) GetChannel(ctx *fiber.Ctx) error {

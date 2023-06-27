@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  api:
+    build:
+      context: .
+      target: builder
+    entrypoint:
+      - ./scripts/watcher.sh
+    volumes:
+      - .:/webhook-fwd
+    ports:
+      - 5333:5333
+      - 15333:15333
